@@ -10,23 +10,29 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            //AbstractFactory();
+            AbstractFactory();
             //Strategy();
-            Adapter();
+            //Adapter();
 
             Console.ReadLine();
         }
 
         static void AbstractFactory()
-        {            
-            //DbFactory db = new SqlFactory();
-            DbFactory db = new MongoFactory();
+        {
+            /*
+             ambientes: 
+             web
+             standalone
+             mobile
+             */
+            
+            var factory = FormFactories.ObterFactory("mobile");
 
-            var con = db.CreateConnection();
-            con.Open();
+            var textBox = factory.CriarTextBox();
+            textBox.Criar();
 
-            var cmd = db.CreateCommand();
-            cmd.Execute();
+            var button = factory.CriarBotao();
+            button.Criar();
         }
 
         static void Strategy()
