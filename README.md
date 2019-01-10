@@ -8,5 +8,15 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
 # Padrões a serem implementados!
 
+  - Bridge
   - Command
-  - Drag and drop images (requires your Dropbox account be linked)
+  - Decorator
+  - Interpreter
+  - Iterator
+  - Mediator
+  - Memento
+  - Observer
+  - Repository
+  - Singleton
+  - Template Method
+  - Visitor
