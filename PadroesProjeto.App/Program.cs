@@ -10,9 +10,10 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            AbstractFactory_Exemplo1();
+            //AbstractFactory_Exemplo1();
             //AbstractFactory_Exemplo2();
-            //Strategy();
+            //Strategy_Exemplo1();
+            Strategy_Exemplo2();
             //Adapter();
 
             Console.ReadLine();
@@ -40,7 +41,7 @@ namespace PadroesProjeto.App
             cmd.Execute();
         }
 
-        static void Strategy()
+        static void Strategy_Exemplo1()
         {
             var codigoLocal = 2;
             var pesoProduto = 3;
@@ -50,6 +51,22 @@ namespace PadroesProjeto.App
 
             var pedidoExpresso = new Pedido(new CalculadorDeFreteExpresso(), codigoLocal, pesoProduto);
             Console.WriteLine($"Cálculo frete expresso {pedidoExpresso.CalcularFrete()}");
+        }
+
+        static void Strategy_Exemplo2()
+        {
+            double percentualComissao = 5;
+            double totalNormal = 5000;
+            double totalEspecial = 6000;
+
+            var conteudo = new Conteudo(new ComissaoIndividual());
+            double comissaoVendedor = conteudo.CalculaComissao(totalNormal, percentualComissao);
+
+            conteudo = new Conteudo(new ComissaoConjunta());
+
+            comissaoVendedor += conteudo.CalculaComissao(totalEspecial, percentualComissao);
+
+            Console.WriteLine($"Comissão total: {comissaoVendedor}");
         }
 
         static void Adapter()
