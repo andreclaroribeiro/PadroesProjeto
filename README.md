@@ -9,14 +9,22 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 # Padrões a serem implementados!
 
   - Bridge
+  - Builder
+  - Chain of Responsibility
   - Command
+  - Composite
   - Decorator
+  - Facade
+  - Flyweight
   - Interpreter
   - Iterator
   - Mediator
   - Memento
   - Observer
+  - Prototype
+  - Proxy
   - Repository
   - Singleton
+  - State
   - Template Method
   - Visitor
