@@ -4,8 +4,17 @@ namespace PadroesProjeto.Source.AbstractFactory
 {
     public static class FormFactories
     {
-        public static IFormFactory ObterFactory(string ambiente)
-        {           
+        public static IFormFactory ObterFactory()
+        {
+            /* ambientes: 
+                 web
+                 standalone
+                 mobile
+             */
+
+            var config = new System.Configuration.AppSettingsReader();
+            var ambiente = config.GetValue("ambiente", typeof(System.String)).ToString();
+
             if (ambiente == "web")
             {
                 return new FormWebFactory();

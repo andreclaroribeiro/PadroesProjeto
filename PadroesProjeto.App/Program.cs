@@ -10,29 +10,34 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            AbstractFactory();
+            AbstractFactory_Exemplo1();
+            //AbstractFactory_Exemplo2();
             //Strategy();
             //Adapter();
 
             Console.ReadLine();
         }
 
-        static void AbstractFactory()
-        {
-            /*
-             ambientes: 
-             web
-             standalone
-             mobile
-             */
-            
-            var factory = FormFactories.ObterFactory("mobile");
+        static void AbstractFactory_Exemplo1()
+        {          
+            var factory = FormFactories.ObterFactory();
 
             var textBox = factory.CriarTextBox();
             textBox.Criar();
 
             var button = factory.CriarBotao();
             button.Criar();
+        }
+
+        static void AbstractFactory_Exemplo2()
+        {
+            var db = DbFactory.Criar();
+
+            var con = db.CreateConnection();
+            con.Open();
+
+            var cmd = db.CreateCommand();
+            cmd.Execute();
         }
 
         static void Strategy()
