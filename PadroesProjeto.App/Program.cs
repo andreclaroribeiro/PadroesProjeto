@@ -1,7 +1,10 @@
 ﻿using PadroesProjeto.Source.AbstractFactory;
 using PadroesProjeto.Source.Adapter;
+using PadroesProjeto.Source.Command;
+using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Strategy;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PadroesProjeto.App
@@ -13,8 +16,10 @@ namespace PadroesProjeto.App
             //AbstractFactory_Exemplo1();
             //AbstractFactory_Exemplo2();
             //Strategy_Exemplo1();
-            Strategy_Exemplo2();
+            //Strategy_Exemplo2();
             //Adapter();
+            //Command_Exemplo1();
+            Facade();
 
             Console.ReadLine();
         }
@@ -78,6 +83,26 @@ namespace PadroesProjeto.App
             var clientes = service.GetAllClientes();
 
             clientes.ToList().ForEach(x => Console.WriteLine($"{x.Nome}"));
+        }
+
+        static void Command_Exemplo1()
+        {
+            var comandos = new List<IComando>
+            {
+                new LogMensagemComando("Log realizado"),
+                new LogEmailComando("Email através de comando"),
+                new SalvarRegistroComando(1),
+                new SalvarRegistroComando(3)
+            };
+
+            var executor = new Executor();
+            executor.Executar(comandos);
+        }
+
+        static void Facade()
+        {
+            var pacoteViagemFacade = new PacoteViagemFacade();
+            pacoteViagemFacade.Adquirir();
         }
     }
 }
