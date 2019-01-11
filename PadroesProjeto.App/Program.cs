@@ -1,5 +1,6 @@
 ﻿using PadroesProjeto.Source.AbstractFactory;
 using PadroesProjeto.Source.Adapter;
+using PadroesProjeto.Source.Builder;
 using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Strategy;
@@ -19,7 +20,8 @@ namespace PadroesProjeto.App
             //Strategy_Exemplo2();
             //Adapter();
             //Command_Exemplo1();
-            Facade();
+            //Facade();
+            Builder();
 
             Console.ReadLine();
         }
@@ -103,6 +105,27 @@ namespace PadroesProjeto.App
         {
             var pacoteViagemFacade = new PacoteViagemFacade();
             pacoteViagemFacade.Adquirir();
+        }
+
+        static void Builder()
+        {
+            var concessionaria = new ConcessionariaDirector(new FiatBuilder());
+
+            concessionaria.construirCarro();
+            var carro = concessionaria.GetCarro();
+
+            Console.WriteLine($"Carro: {carro.Modelo} / {carro.Montadora}" + 
+                $" Ano: {carro.AnoFabricacao} Motor: {carro.Motor} Valor: {carro.Preco}");
+
+            Console.WriteLine();
+
+            concessionaria = new ConcessionariaDirector(new VolksBuilder());
+
+            concessionaria.construirCarro();
+            carro = concessionaria.GetCarro();
+
+            Console.WriteLine($"Carro: {carro.Modelo} / {carro.Montadora}" +
+                $" Ano: {carro.AnoFabricacao} Motor: {carro.Motor} Valor: {carro.Preco}");
         }
     }
 }
