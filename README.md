@@ -4,6 +4,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
   - Abstract Factory
   - Adapter
+  - Builder
   - Command
   - Facade
   - Strategy
@@ -11,7 +12,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 # Padrões a serem implementados!
 
   - Bridge
-  - Builder
   - Chain of Responsibility
   - Composite
   - Decorator
