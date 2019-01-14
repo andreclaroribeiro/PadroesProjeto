@@ -6,6 +6,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
   - [Abstract Factory][pgfactory]
   - [Builder][pgbuilder]
   - [Prototype][pgprototype]
+  - [Singleton][pgsingleton]
 
 ### Padrões estruturais
 - [Adapter][pgadapter]
@@ -29,7 +30,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
   - Memento
   - Proxy
   - Repository
-  - Singleton
   - State
   - Template Method
   - Visitor
@@ -45,3 +45,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgbridge]:<./bridge.md>
 [pgobserver]:<./observer.md>
 [pgprototype]:<./prototype.md>
+[pgsingleton]:<./singleton.md>
