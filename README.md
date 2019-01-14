@@ -31,4 +31,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
 
 
-[pgfactory]:<https//:github.com/andreclaroribeiro/PadroesProjeto/factory.md>
+[pgfactory]:<./factory.md>
