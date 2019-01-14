@@ -3,7 +3,7 @@
 Este projeto demonstra, com exemplos em C#, a utilização dos padrões de projeto abaixo:
 
   - [Abstract Factory][pgfactory]
-  - Adapter
+  - [Adapter][pgadapter]
   - [Builder][pgbuilder]
   - Command
   - Facade
@@ -33,3 +33,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
 [pgfactory]:<./factory.md>
 [pgbuilder]:<./builder.md>
+[pgadapter]:<./adapter.md>
