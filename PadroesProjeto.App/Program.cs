@@ -1,5 +1,6 @@
 ﻿using PadroesProjeto.Source.AbstractFactory;
 using PadroesProjeto.Source.Adapter;
+using PadroesProjeto.Source.Bridge;
 using PadroesProjeto.Source.Builder;
 using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Facade;
@@ -21,7 +22,9 @@ namespace PadroesProjeto.App
             //Adapter();
             //Command_Exemplo1();
             //Facade();
-            Builder();
+            //Builder();
+            //Bridge_Exemplo1();
+            Bridge_Exemplo2();
 
             Console.ReadLine();
         }
@@ -126,6 +129,28 @@ namespace PadroesProjeto.App
 
             Console.WriteLine($"Carro: {carro.Modelo} / {carro.Montadora}" +
                 $" Ano: {carro.AnoFabricacao} Motor: {carro.Motor} Valor: {carro.Preco}");
+        }
+
+        static void Bridge_Exemplo1()
+        {
+            var bridge = new Bridge();
+            var nodeA = new NodeA();
+            var nodeB = new NodeB();
+
+            bridge.ReachTo(nodeA); 
+            bridge.ReachTo(nodeB); 
+        }
+
+        static void Bridge_Exemplo2()
+        {
+            var mb = new MailSendBridge();
+            var csharp = new CSharpMail();
+            var vb = new VbMail();
+            var database = new DatabaseMail();
+
+            mb.SendFrom(csharp);
+            mb.SendFrom(vb);
+            mb.SendFrom(database);
         }
     }
 }
