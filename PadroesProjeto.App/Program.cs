@@ -6,6 +6,7 @@ using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
+using PadroesProjeto.Source.Singleton;
 using PadroesProjeto.Source.Strategy;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,8 @@ namespace PadroesProjeto.App
             //Observer_Exemplo1();
             //Observer_Exemplo2();
             //Prototype_Exemplo1();
-            Prototype_Exemplo2();
+            //Prototype_Exemplo2();
+            Singleton();
 
             Console.ReadLine();
         }
@@ -232,6 +234,16 @@ namespace PadroesProjeto.App
             Color color1 = colormanager["red"].Clone() as Color;
             Color color2 = colormanager["peace"].Clone() as Color;
             Color color3 = colormanager["flame"].Clone() as Color;
+        }
+
+        static void Singleton()
+        {
+            Dispositivo.GetInstance().Marca = "Teste marca";
+            Dispositivo.GetInstance().Modelo = "Teste modelo";
+
+            Dispositivo.GetInstance().Ligar();
+            Console.WriteLine(Dispositivo.GetInstance().ToString());
+            Dispositivo.GetInstance().Desligar();
         }
     }
 }
