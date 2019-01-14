@@ -3,6 +3,7 @@ using PadroesProjeto.Source.Adapter;
 using PadroesProjeto.Source.Bridge;
 using PadroesProjeto.Source.Builder;
 using PadroesProjeto.Source.Command;
+using PadroesProjeto.Source.Composite;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
@@ -32,7 +33,9 @@ namespace PadroesProjeto.App
             //Observer_Exemplo2();
             //Prototype_Exemplo1();
             //Prototype_Exemplo2();
-            Singleton();
+            //Singleton();
+            //Composite_Exemplo1();
+            Composite_Exemplo2();
 
             Console.ReadLine();
         }
@@ -244,6 +247,76 @@ namespace PadroesProjeto.App
             Dispositivo.GetInstance().Ligar();
             Console.WriteLine(Dispositivo.GetInstance().ToString());
             Dispositivo.GetInstance().Desligar();
+        }
+
+        static void Composite_Exemplo1()
+        {
+            var fabricantes = new Fabricante("Fabricantes");
+            var Volks = new Fabricante("Volkswagens");
+
+            fabricantes.AcrescentaNaLista(Volks);
+
+            var Peugeot = new Fabricante("Peugeot");
+
+            fabricantes.AcrescentaNaLista(Peugeot);
+
+            var Jetta = new Carro { Modelo = "Jetta" };
+            Volks.AcrescentaNaLista(Jetta);
+
+            var Gol = new Carro { Modelo = "Gol" };
+            Volks.AcrescentaNaLista(Gol);
+
+            var Peugeot208 = new Carro { Modelo = "Peugeot208" };
+            Peugeot.AcrescentaNaLista(Peugeot208);
+
+            var Peugeot408 = new Carro { Modelo = "Peugeot408" };
+            Peugeot.AcrescentaNaLista(Peugeot408);
+
+            Console.WriteLine("Fabricantes: ");
+
+            foreach (Fabricante item in fabricantes)
+            {
+                Console.WriteLine(string.Format("# Fabrica: {0} ", item.Nome));
+
+                foreach (ICarro filho in item)
+                {
+                    Console.WriteLine(string.Format("-- Modelo: {0} ", filho.Modelo));
+                }
+            }
+        }
+
+        static void Composite_Exemplo2()
+        {
+            var pacote1 = new Pacote(1, "Pacote1", new decimal(10.0));
+            var pacote2 = new Pacote(2, "Pacote2", new decimal(20.0));
+            var tarefa1 = new Tarefa(1, "Tarefa1", new decimal(30.0));
+
+            pacote1.SetItemTrabalho(pacote2);
+            pacote2.SetItemTrabalho(tarefa1);
+
+            var cro1 = new CronogramaConstrucao
+            {
+                NomeConstrutora = "RD Empreendimentos",
+                Nome = "Construcao Condominio Rio de Janeiro"
+            };
+            cro1.SetItemTrabalho(pacote1);
+
+            cro1.PrintEap();
+
+            var tarefa10 = new Tarefa(10, "Tarefa 10", new decimal(10.0));
+            var tarefa11 = new Tarefa(11, "Tarefa 11", new decimal(10.0));
+            var tarefa12 = new Tarefa(12, "Tarefa 12", new decimal(10.0));
+            var tarefa13 = new Tarefa(12, "Tarefa 13", new decimal(10.0));
+
+            tarefa10.SetItemTrabalho(tarefa11);
+            tarefa11.SetItemTrabalho(tarefa12);
+            tarefa12.SetItemTrabalho(tarefa13);
+
+            var cro2 = new CronogramaAcabamento();
+            cro2.Nome = "Acabamento Condomino Rio de Janeiro";
+            cro2.SetItemTrabalho(tarefa10);
+
+            cro2.PrintEap();
         }
     }
 }
