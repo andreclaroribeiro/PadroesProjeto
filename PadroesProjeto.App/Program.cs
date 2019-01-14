@@ -4,6 +4,7 @@ using PadroesProjeto.Source.Bridge;
 using PadroesProjeto.Source.Builder;
 using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Composite;
+using PadroesProjeto.Source.Decorator;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
@@ -19,23 +20,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            //AbstractFactory_Exemplo1();
-            //AbstractFactory_Exemplo2();
-            //Strategy_Exemplo1();
-            //Strategy_Exemplo2();
-            //Adapter();
-            //Command_Exemplo1();
-            //Facade();
-            //Builder();
-            //Bridge_Exemplo1();
-            //Bridge_Exemplo2();
-            //Observer_Exemplo1();
-            //Observer_Exemplo2();
-            //Prototype_Exemplo1();
-            //Prototype_Exemplo2();
-            //Singleton();
-            //Composite_Exemplo1();
-            Composite_Exemplo2();
+            Decorator_Exemplo2();
 
             Console.ReadLine();
         }
@@ -317,6 +302,58 @@ namespace PadroesProjeto.App
             cro2.SetItemTrabalho(tarefa10);
 
             cro2.PrintEap();
+        }
+
+        static void Decorator_Exemplo1()
+        {
+            var pessoa = new Pessoa();
+
+            Console.WriteLine("usando Pessoa:");
+            Console.WriteLine(pessoa.Andar());
+            
+            Console.WriteLine();
+
+            var pessoaRapida = new PessoaRapida(pessoa);
+
+            Console.WriteLine("usando PessoaRapida:");
+            Console.WriteLine(pessoaRapida.Andar());
+            Console.WriteLine(pessoaRapida.Correr());
+
+            Console.WriteLine();
+
+            var pessoaLenta = new PessoaLenta(pessoa);
+
+            Console.WriteLine("usando PessoaLenta:");
+            Console.WriteLine(pessoaLenta.Andar());
+        }
+
+        static void Decorator_Exemplo2()
+        {
+            var sorvete = new Sorvete();
+
+            Console.WriteLine("Sorvete:");
+            Console.WriteLine("{0:c}", sorvete.Preco);
+            
+            Console.WriteLine();
+            
+            var sorveteCobertura = new SorveteComCobertura(sorvete);
+            
+            Console.WriteLine("Sorvete com cobertura:");
+            Console.WriteLine("{0:c}", sorveteCobertura.Preco);
+            
+            Console.WriteLine();
+            
+            var sorveteBalinha = new SorveteComBalinha(sorvete);
+
+            Console.WriteLine("Sorvete com balinha:");
+            Console.WriteLine("{0:c}", sorveteBalinha.Preco);
+            
+            Console.WriteLine();
+            
+            var sorveteCoberturaBalinha = new SorveteComCobertura(sorveteBalinha);
+            
+            Console.WriteLine("Sorvete com cobertura E balinha:");
+            Console.WriteLine("{0:c}", sorveteCoberturaBalinha.Preco);
         }
     }
 }
