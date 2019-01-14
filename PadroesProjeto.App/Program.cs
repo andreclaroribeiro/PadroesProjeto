@@ -5,6 +5,7 @@ using PadroesProjeto.Source.Builder;
 using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Observer;
+using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Strategy;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,9 @@ namespace PadroesProjeto.App
             //Bridge_Exemplo1();
             //Bridge_Exemplo2();
             //Observer_Exemplo1();
-            Observer_Exemplo2();
+            //Observer_Exemplo2();
+            //Prototype_Exemplo1();
+            Prototype_Exemplo2();
 
             Console.ReadLine();
         }
@@ -200,6 +203,35 @@ namespace PadroesProjeto.App
 
             Console.WriteLine("Enviando os emails para os usuários assinados.\n");
             controladorEmail.EnviarEmail();
+        }
+
+        static void Prototype_Exemplo1()
+        {
+            var p1 = new ConcretePrototype1("I");
+            var c1 = (ConcretePrototype1)p1.Clone();
+            Console.WriteLine("Cloned: {0}", c1.Id);
+
+            ConcretePrototype2 p2 = new ConcretePrototype2("II");
+            ConcretePrototype2 c2 = (ConcretePrototype2)p2.Clone();
+
+            Console.WriteLine("Cloned: {0}", c2.Id);
+        }
+
+        static void Prototype_Exemplo2()
+        {
+            var colormanager = new ColorManager();
+
+            colormanager["red"] = new Color(255, 0, 0);
+            colormanager["green"] = new Color(0, 255, 0);
+            colormanager["blue"] = new Color(0, 0, 255);
+
+            colormanager["angry"] = new Color(255, 54, 0);
+            colormanager["peace"] = new Color(128, 211, 128);
+            colormanager["flame"] = new Color(211, 34, 20);
+
+            Color color1 = colormanager["red"].Clone() as Color;
+            Color color2 = colormanager["peace"].Clone() as Color;
+            Color color3 = colormanager["flame"].Clone() as Color;
         }
     }
 }
