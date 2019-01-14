@@ -4,6 +4,7 @@ using PadroesProjeto.Source.Bridge;
 using PadroesProjeto.Source.Builder;
 using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Facade;
+using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Strategy;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,9 @@ namespace PadroesProjeto.App
             //Facade();
             //Builder();
             //Bridge_Exemplo1();
-            Bridge_Exemplo2();
+            //Bridge_Exemplo2();
+            //Observer_Exemplo1();
+            Observer_Exemplo2();
 
             Console.ReadLine();
         }
@@ -151,6 +154,52 @@ namespace PadroesProjeto.App
             mb.SendFrom(csharp);
             mb.SendFrom(vb);
             mb.SendFrom(database);
+        }
+
+        static void Observer_Exemplo1()
+        {
+            var controlador = new ControladorEmail();
+            var usuarioA = new UsuarioA();
+            var usuarioB = new UsuarioB();
+            var usuarioC = new UsuarioC();
+
+            Console.WriteLine("Os usuarios A, B e C cadastraram-se para receber as promoções. \n");
+            usuarioA.Assinar(controlador);
+            usuarioB.Assinar(controlador);
+            usuarioC.Assinar(controlador);
+
+            Console.WriteLine("Enviando os emails para os usuarios assinados (usuários cadastrados).\n");
+            controlador.EnviarEmail();
+
+            Console.WriteLine("\nO usuário A resolveu concancelar a assinatura e não irá receber mais emails.\n");
+            usuarioA.CancelarAssinatura(controlador);
+
+            Console.WriteLine("Enviando os emails para os usuarios assinados.\n");
+            controlador.EnviarEmail();
+        }
+
+        static void Observer_Exemplo2()
+        {
+            var email = new Email();
+
+            var controladorEmail = new EmailController(email);
+
+            Console.WriteLine("Os usuarios A, B e C cadastraram-se para receber as promoções. \n");
+
+            var userA = new UserA(controladorEmail);
+            var userB = new UserB(controladorEmail);
+            var userC = new UserC(controladorEmail);
+
+            Console.WriteLine("Enviando os emails para os usuários assinados (usuários cadastrados).\n");
+
+            controladorEmail.EnviarEmail();
+
+            Console.WriteLine("\nO usuário A resolveu cancelar a assinatura e não irá receber mais emails.\n");
+
+            userA.Dispose();
+
+            Console.WriteLine("Enviando os emails para os usuários assinados.\n");
+            controladorEmail.EnviarEmail();
         }
     }
 }
