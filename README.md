@@ -4,7 +4,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
   - [Abstract Factory][pgfactory]
   - Adapter
-  - Builder
+  - [Builder][pgbuilder]
   - Command
   - Facade
   - Strategy
@@ -32,3 +32,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
 
 [pgfactory]:<./factory.md>
+[pbbuilder]:<./builder.md>
