@@ -12,6 +12,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 - [Adapter][pgadapter]
 - [Bridge][pgbridge]
 - [Composite][pgcomposite]
+- [Decorator][pgdecorator]
 - [Façade][pgfacade]
 
 ### Padrões comportamentais
@@ -22,7 +23,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 # Padrões a serem implementados!
 
   - Chain of Responsibility
-  - Decorator
   - Flyweight
   - Interpreter
   - Iterator
@@ -47,3 +47,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgprototype]:<./prototype.md>
 [pgsingleton]:<./singleton.md>
 [pgcomposite]:<./composite.md>
+[pgdecorator]:<./decorator.md>
