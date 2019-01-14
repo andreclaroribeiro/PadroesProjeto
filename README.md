@@ -2,7 +2,7 @@
 
 Este projeto demonstra, com exemplos em C#, a utilização dos padrões de projeto abaixo:
 
-  - Abstract Factory
+  - [Abstract Factory][pgfactory]
   - Adapter
   - Builder
   - Command
@@ -28,3 +28,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
   - State
   - Template Method
   - Visitor
+
+
+
+[pgfactory]:<https//:github.com/andreclaroribeiro/PadroesProjeto/>
