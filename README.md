@@ -32,4 +32,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
 
 [pgfactory]:<./factory.md>
-[pbbuilder]:<./builder.md>
+[pgbuilder]:<./builder.md>
