@@ -6,7 +6,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
   - [Adapter][pgadapter]
   - [Builder][pgbuilder]
   - [Command][pgcommand]
-  - Facade
+  - [Façade][pgfacade]
   - Strategy
 
 # Padrões a serem implementados!
@@ -35,3 +35,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgbuilder]:<./builder.md>
 [pgadapter]:<./adapter.md>
 [pgcommand]:<./command.md>
+[pgfacade]:<./facade.md>
