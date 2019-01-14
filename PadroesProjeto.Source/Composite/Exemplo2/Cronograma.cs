@@ -33,7 +33,7 @@ namespace PadroesProjeto.Source.Composite
                 ShowEap(itemTrabalho.GetItemTrabalho());
             }
 
-            //_node.SetLength(0);
+            _node.Clear();
         }
 
         public void PrintEap()
