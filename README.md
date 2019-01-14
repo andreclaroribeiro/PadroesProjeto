@@ -2,16 +2,21 @@
 
 Este projeto demonstra, com exemplos em C#, a utilização dos padrões de projeto abaixo:
 
+### Padrões de criação
   - [Abstract Factory][pgfactory]
-  - [Adapter][pgadapter]
   - [Builder][pgbuilder]
-  - [Command][pgcommand]
-  - [Façade][pgfacade]
-  - [Strategy][pgstrategy]
+
+### Padrões estruturais
+- [Adapter][pgadapter]
+- [Bridge][pgbridge]
+- [Façade][pgfacade]
+
+### Padrões comportamentais
+- [Command][pgcommand]
+- [Strategy][pgstrategy]
 
 # Padrões a serem implementados!
 
-  - Bridge
   - Chain of Responsibility
   - Composite
   - Decorator
@@ -37,3 +42,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgcommand]:<./command.md>
 [pgfacade]:<./facade.md>
 [pgstrategy]:<./strategy.md>
+[pgbridge]:<./bridge.md>
