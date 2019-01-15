@@ -17,6 +17,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 - [Flyweight][pgflyweight]
 
 ### Padrões comportamentais
+- [Chain of Responsibility][pgchain]
 - [Command][pgcommand]
 - [Iterator][pgiterator]
 - [Observer][pgobserver]
@@ -27,8 +28,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 - [Visitor][pgvisitor]
 
 # Padrões a serem implementados!
-  - Chain of Responsibility
-  - Interpreter
   - Mediator
   - Proxy
   - Repository
@@ -51,3 +50,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgstate]:<./state.md>
 [pgvisitor]:<./visitor.md>
 [pgtemplatemethod]:<./templatemethod.md>
+[pgchain]:<./chain.md>
