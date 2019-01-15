@@ -6,6 +6,7 @@ using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Composite;
 using PadroesProjeto.Source.Decorator;
 using PadroesProjeto.Source.Facade;
+using PadroesProjeto.Source.Flyweight;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Singleton;
@@ -20,7 +21,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            Decorator_Exemplo2();
+            Flyweight_Exemplo1();
 
             Console.ReadLine();
         }
@@ -354,6 +355,24 @@ namespace PadroesProjeto.App
             
             Console.WriteLine("Sorvete com cobertura E balinha:");
             Console.WriteLine("{0:c}", sorveteCoberturaBalinha.Preco);
+        }
+
+        static void Flyweight_Exemplo1()
+        {
+            var factory = new FlyweightFactory();
+
+            factory.GetFlyweight(SpritesEnum.Cenario1).DesenharImagem(new Ponto(0, 0));
+
+            factory.GetFlyweight(SpritesEnum.Jogador).DesenharImagem(new Ponto(10, 10));
+
+            factory.GetFlyweight(SpritesEnum.Inimigo1).DesenharImagem(new Ponto(100, 10));
+            factory.GetFlyweight(SpritesEnum.Inimigo1).DesenharImagem(new Ponto(120, 10));
+            factory.GetFlyweight(SpritesEnum.Inimigo1).DesenharImagem(new Ponto(140, 10));
+
+            factory.GetFlyweight(SpritesEnum.Inimigo2).DesenharImagem(new Ponto(60, 10));
+            factory.GetFlyweight(SpritesEnum.Inimigo2).DesenharImagem(new Ponto(50, 10));
+
+            factory.GetFlyweight(SpritesEnum.Inimigo3).DesenharImagem(new Ponto(170, 10));
         }
     }
 }
