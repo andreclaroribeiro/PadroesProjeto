@@ -9,6 +9,7 @@ using PadroesProjeto.Source.Decorator;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Flyweight;
 using PadroesProjeto.Source.Iterator;
+using PadroesProjeto.Source.Mediator;
 using PadroesProjeto.Source.Memento;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
@@ -28,7 +29,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            Proxy_Exemplo1();
+            Mediator_Exemplo1();
 
             Console.ReadLine();
         }
@@ -513,6 +514,25 @@ namespace PadroesProjeto.App
             IArquivo arq02 = new ArquivoProxy("Arquivo02");
             Console.WriteLine();
             IArquivo arq03 = new ArquivoProxy("Arquivo03");
+        }
+
+        private static void Mediator_Exemplo1()
+        {
+            var mediador = new MensagemMediator();
+
+            var android = new AndroidColleague(mediador);
+            var ios = new IOSColleague(mediador);
+            var symbian = new SymbianColleague(mediador);
+
+            mediador.AdicionarColleague(android);
+            mediador.AdicionarColleague(ios);
+            mediador.AdicionarColleague(symbian);
+
+            symbian.EnviarMensagem("Oi, eu sou um Symbian!");
+            Console.WriteLine("=========");
+            android.EnviarMensagem("Oi Symbian! Eu sou um Android!");
+            Console.WriteLine("=========");
+            ios.EnviarMensagem("Olá todos, sou um iOs!");
         }
     }
 }
