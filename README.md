@@ -18,6 +18,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
 ### Padrões comportamentais
 - [Command][pgcommand]
+- [Iterator][pgiterator]
 - [Observer][pgobserver]
 - [Strategy][pgstrategy]
 
@@ -25,7 +26,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
   - Chain of Responsibility
   - Interpreter
-  - Iterator
   - Mediator
   - Memento
   - Proxy
@@ -49,3 +49,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgcomposite]:<./composite.md>
 [pgdecorator]:<./decorator.md>
 [pgflyweight]:<./flyweight.md>
+[pgiterator]:<./iterator.md>
