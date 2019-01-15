@@ -14,6 +14,7 @@ using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Singleton;
 using PadroesProjeto.Source.State;
 using PadroesProjeto.Source.Strategy;
+using PadroesProjeto.Source.Template_Method;
 using PadroesProjeto.Source.Visitor;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            Visitor_Exemplo1();
+            TemplateMethod();
 
             Console.ReadLine();
         }
@@ -472,6 +473,15 @@ namespace PadroesProjeto.App
             {
                 element.Visit(weightVisitor);
             }
+        }
+
+        static void TemplateMethod()
+        {
+            var padeiro = new Padeiro();
+            padeiro.FazerBolo(EBolo.TipoBolo.Chocolate);
+
+            var confeiteiro = new Confeiteiro();
+            confeiteiro.FazerBolo(EBolo.TipoBolo.Morango);
         }
     }
 }
