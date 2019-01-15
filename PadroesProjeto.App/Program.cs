@@ -8,6 +8,7 @@ using PadroesProjeto.Source.Decorator;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Flyweight;
 using PadroesProjeto.Source.Iterator;
+using PadroesProjeto.Source.Memento;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Singleton;
@@ -22,7 +23,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            Iterator_Exemplo1();
+            Memento_Exemplo2();
 
             Console.ReadLine();
         }
@@ -395,6 +396,40 @@ namespace PadroesProjeto.App
             {
                 Console.WriteLine(it.CurrentItem().Nome);
             }
+        }
+
+        static void Memento_Exemplo1()
+        {
+            var texto = new Texto();
+            texto.EscreverTexto("Primeira linha do texto\n");
+            texto.EscreverTexto("Segunda linha do texto\n");
+            texto.EscreverTexto("Terceira linha do texto\n");
+            texto.MostrarTexto();
+            texto.DesfazerEscrita();
+            texto.MostrarTexto();
+            texto.DesfazerEscrita();
+            texto.MostrarTexto();
+            texto.DesfazerEscrita();
+            texto.MostrarTexto();
+            texto.DesfazerEscrita();
+            texto.MostrarTexto();
+        }
+
+        static void Memento_Exemplo2()
+        {
+            var o = new Originator
+            {
+                State = "On"
+            };
+
+            var c = new Caretaker
+            {
+                Memento = o.CreateMemento()
+            };
+
+            o.State = "Off";
+
+            o.SetMemento(c.Memento);
         }
     }
 }
