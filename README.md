@@ -15,6 +15,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 - [Decorator][pgdecorator]
 - [Façade][pgfacade]
 - [Flyweight][pgflyweight]
+- [Proxy][pgproxy]
 
 ### Padrões comportamentais
 - [Chain of Responsibility][pgchain]
@@ -29,7 +30,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 
 # Padrões a serem implementados!
   - Mediator
-  - Proxy
   - Repository
   
 [pgfactory]:<./factory.md>
@@ -38,6 +38,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgcommand]:<./command.md>
 [pgfacade]:<./facade.md>
 [pgstrategy]:<./strategy.md>
+[pgproxy]:<./proxy.md>
 [pgbridge]:<./bridge.md>
 [pgobserver]:<./observer.md>
 [pgprototype]:<./prototype.md>
