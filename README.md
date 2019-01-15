@@ -23,6 +23,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 - [Memento][pgmemento]
 - [State][pgstate]
 - [Strategy][pgstrategy]
+- [Visitor][pgvisitor]
 
 # Padrões a serem implementados!
   - Chain of Responsibility
@@ -31,8 +32,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
   - Proxy
   - Repository
   - Template Method
-  - Visitor
-
 
 [pgfactory]:<./factory.md>
 [pgbuilder]:<./builder.md>
@@ -50,3 +49,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgiterator]:<./iterator.md>
 [pgmemento]:<./memento.md>
 [pgstate]:<./state.md>
+[pgvisitor]:<./visitor.md>
