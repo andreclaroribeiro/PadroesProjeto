@@ -12,6 +12,7 @@ using PadroesProjeto.Source.Iterator;
 using PadroesProjeto.Source.Memento;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
+using PadroesProjeto.Source.Proxy;
 using PadroesProjeto.Source.Singleton;
 using PadroesProjeto.Source.State;
 using PadroesProjeto.Source.Strategy;
@@ -27,7 +28,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            ChainOfResponsibility();
+            Proxy_Exemplo1();
 
             Console.ReadLine();
         }
@@ -436,7 +437,7 @@ namespace PadroesProjeto.App
             o.SetMemento(c.Memento);
         }
 
-        static void State()
+        static void State_Exemplo1()
         {
             var conta = new Conta(1000);
 
@@ -485,7 +486,7 @@ namespace PadroesProjeto.App
             confeiteiro.FazerBolo(EBolo.TipoBolo.Morango);
         }
 
-        static void ChainOfResponsibility()
+        static void ChainOfResponsibility_Exemplo1()
         {
             BancoChain bancos = new BancoA();
             bancos.SetNext(new BancoB());
@@ -503,6 +504,15 @@ namespace PadroesProjeto.App
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        private static void Proxy_Exemplo1()
+        {
+            IArquivo arq01 = new ArquivoProxy("Arquivo01");
+            Console.WriteLine();
+            IArquivo arq02 = new ArquivoProxy("Arquivo02");
+            Console.WriteLine();
+            IArquivo arq03 = new ArquivoProxy("Arquivo03");
         }
     }
 }
