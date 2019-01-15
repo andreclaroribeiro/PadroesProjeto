@@ -12,6 +12,7 @@ using PadroesProjeto.Source.Memento;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Singleton;
+using PadroesProjeto.Source.State;
 using PadroesProjeto.Source.Strategy;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            Memento_Exemplo2();
+            State();
 
             Console.ReadLine();
         }
@@ -430,6 +431,19 @@ namespace PadroesProjeto.App
             o.State = "Off";
 
             o.SetMemento(c.Memento);
+        }
+
+        static void State()
+        {
+            var conta = new Conta(1000);
+
+            conta.Deposito(2500);
+            conta.Saque(500);
+            conta.Deposito(5000);
+            conta.Saque(4500);
+            conta.Saque(200);
+            conta.Saque(3350);
+            conta.Saque(1000);
         }
     }
 }
