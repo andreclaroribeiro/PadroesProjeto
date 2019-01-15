@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PadroesProjeto.Source", "Pa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PadroesProjeto.App", "PadroesProjeto.App\PadroesProjeto.App.csproj", "{66851EF7-84DC-43B6-ACED-03BC73599019}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{2029BBC3-ADE9-49AB-9AA8-B7C0E75ED53B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
