@@ -14,6 +14,7 @@ using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Singleton;
 using PadroesProjeto.Source.State;
 using PadroesProjeto.Source.Strategy;
+using PadroesProjeto.Source.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            State();
+            Visitor_Exemplo1();
 
             Console.ReadLine();
         }
@@ -444,6 +445,33 @@ namespace PadroesProjeto.App
             conta.Saque(200);
             conta.Saque(3350);
             conta.Saque(1000);
+        }
+
+        static void Visitor_Exemplo1()
+        {
+            var store = new List<IStore>();
+            store.Add(new Car() { CarName = "A1", Price = 200M, CarType = "Mercedes" });
+            store.Add(new Car() { CarName = "A2", Price = 100M, CarType = "Normal" });
+
+            store.Add(new Bike() { BikeName = "B1", Price = 50M, BikeType = "Bullet" });
+            store.Add(new Bike() { BikeName = "B2", Price = 30M, BikeType = "Normal" });
+
+            store.Add(new Moto() { MotoName = "C1", Price = 110M, MotoType = "Honda" });
+            store.Add(new Moto() { MotoName = "C2", Price = 95M, MotoType = "Normal" });
+
+            var priceVisitor = new PriceVisitor();
+            foreach (var element in store)
+            {
+                element.Visit(priceVisitor);
+            }
+
+            Console.WriteLine();
+
+            var weightVisitor = new WeightVisitor();
+            foreach (var element in store)
+            {
+                element.Visit(weightVisitor);
+            }
         }
     }
 }
