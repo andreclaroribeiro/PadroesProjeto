@@ -2,6 +2,7 @@
 using PadroesProjeto.Source.Adapter;
 using PadroesProjeto.Source.Bridge;
 using PadroesProjeto.Source.Builder;
+using PadroesProjeto.Source.ChainOfResponsibility;
 using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Composite;
 using PadroesProjeto.Source.Decorator;
@@ -14,7 +15,7 @@ using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Singleton;
 using PadroesProjeto.Source.State;
 using PadroesProjeto.Source.Strategy;
-using PadroesProjeto.Source.Template_Method;
+using PadroesProjeto.Source.TemplateMethod;
 using PadroesProjeto.Source.Visitor;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            TemplateMethod();
+            ChainOfResponsibility();
 
             Console.ReadLine();
         }
@@ -482,6 +483,26 @@ namespace PadroesProjeto.App
 
             var confeiteiro = new Confeiteiro();
             confeiteiro.FazerBolo(EBolo.TipoBolo.Morango);
+        }
+
+        static void ChainOfResponsibility()
+        {
+            BancoChain bancos = new BancoA();
+            bancos.SetNext(new BancoB());
+            bancos.SetNext(new BancoC());
+            bancos.SetNext(new BancoD());
+
+            try
+            {
+                bancos.EfetuarPagamento(BancoEnum.BancoC);
+                bancos.EfetuarPagamento(BancoEnum.BancoD);
+                bancos.EfetuarPagamento(BancoEnum.BancoA);
+                bancos.EfetuarPagamento(BancoEnum.BancoB);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

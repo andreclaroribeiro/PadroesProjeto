@@ -1,6 +1,6 @@
-﻿namespace PadroesProjeto.Source.Template_Method
+﻿namespace PadroesProjeto.Source.TemplateMethod
 {
-    public class Confeiteiro
+    public  class Padeiro
     {
         public void FazerBolo(EBolo.TipoBolo tipoBolo)
         {

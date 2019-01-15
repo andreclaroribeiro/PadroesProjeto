@@ -1,4 +1,4 @@
-﻿namespace PadroesProjeto.Source.Template_Method
+﻿namespace PadroesProjeto.Source.TemplateMethod
 {
     public class EBolo
     {
