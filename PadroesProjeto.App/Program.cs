@@ -7,6 +7,7 @@ using PadroesProjeto.Source.Composite;
 using PadroesProjeto.Source.Decorator;
 using PadroesProjeto.Source.Facade;
 using PadroesProjeto.Source.Flyweight;
+using PadroesProjeto.Source.Iterator;
 using PadroesProjeto.Source.Observer;
 using PadroesProjeto.Source.Prototype;
 using PadroesProjeto.Source.Singleton;
@@ -21,7 +22,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            Flyweight_Exemplo1();
+            Iterator_Exemplo1();
 
             Console.ReadLine();
         }
@@ -373,6 +374,27 @@ namespace PadroesProjeto.App
             factory.GetFlyweight(SpritesEnum.Inimigo2).DesenharImagem(new Ponto(50, 10));
 
             factory.GetFlyweight(SpritesEnum.Inimigo3).DesenharImagem(new Ponto(170, 10));
+        }
+
+        static void Iterator_Exemplo1()
+        {
+            IAgregadoCanal canaisEsporte = new CanalEsporte();
+
+            Console.WriteLine("Canais de Esporte:");
+
+            for (IIterador it = canaisEsporte.CriarIterador(); !it
+                    .IsDone(); it.Next())
+            {
+                Console.WriteLine(it.CurrentItem().Nome);
+            }
+
+            IAgregadoCanal canaisFilme = new CanalFilme();
+            Console.WriteLine("\nCanais de Filmes:");
+            for (IIterador it = canaisFilme.CriarIterador(); !it
+                    .IsDone(); it.Next())
+            {
+                Console.WriteLine(it.CurrentItem().Nome);
+            }
         }
     }
 }
