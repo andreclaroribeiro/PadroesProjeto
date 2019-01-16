@@ -28,9 +28,6 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 - [Strategy][pgstrategy]
 - [Template Method][pgtemplatemethod]
 - [Visitor][pgvisitor]
-
-# Padrões a serem implementados!
-- Repository
   
 [pgfactory]:<./factory.md>
 [pgbuilder]:<./builder.md>
