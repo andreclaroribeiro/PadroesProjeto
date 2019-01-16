@@ -7,6 +7,7 @@ using PadroesProjeto.Source.Command;
 using PadroesProjeto.Source.Composite;
 using PadroesProjeto.Source.Decorator;
 using PadroesProjeto.Source.Facade;
+using PadroesProjeto.Source.FactoryMethod;
 using PadroesProjeto.Source.Flyweight;
 using PadroesProjeto.Source.Iterator;
 using PadroesProjeto.Source.Mediator;
@@ -29,7 +30,7 @@ namespace PadroesProjeto.App
     {
         static void Main(string[] args)
         {
-            Mediator_Exemplo1();
+            FactoryMethod_Exemplo1();
 
             Console.ReadLine();
         }
@@ -507,7 +508,7 @@ namespace PadroesProjeto.App
             }
         }
 
-        private static void Proxy_Exemplo1()
+        static void Proxy_Exemplo1()
         {
             IArquivo arq01 = new ArquivoProxy("Arquivo01");
             Console.WriteLine();
@@ -516,7 +517,7 @@ namespace PadroesProjeto.App
             IArquivo arq03 = new ArquivoProxy("Arquivo03");
         }
 
-        private static void Mediator_Exemplo1()
+        static void Mediator_Exemplo1()
         {
             var mediador = new MensagemMediator();
 
@@ -533,6 +534,24 @@ namespace PadroesProjeto.App
             android.EnviarMensagem("Oi Symbian! Eu sou um Android!");
             Console.WriteLine("=========");
             ios.EnviarMensagem("Olá todos, sou um iOs!");
+        }
+
+        static void FactoryMethod_Exemplo1()
+        {
+            Document[] documents = new Document[2];
+
+            documents[0] = new Resume();
+            documents[1] = new Report();
+
+            foreach (Document document in documents)
+            {
+                Console.WriteLine("\n" + document.GetType().Name + "--");
+
+                foreach (Page page in document.Pages)
+                {
+                    Console.WriteLine(" " + page.GetType().Name);
+                }
+            }
         }
     }
 }
