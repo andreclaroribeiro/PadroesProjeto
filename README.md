@@ -5,6 +5,7 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 ### Padrões de criação
   - [Abstract Factory][pgfactory]
   - [Builder][pgbuilder]
+  - [Factory Method][pgfactorymethod]
   - [Prototype][pgprototype]
   - [Singleton][pgsingleton]
 
@@ -50,3 +51,4 @@ Este projeto demonstra, com exemplos em C#, a utilização dos padrões de proje
 [pgtemplatemethod]:<./templatemethod.md>
 [pgchain]:<./chain.md>
 [pgmediator]:<./mediator.md>
+[pgfactorymethod]:<./factorymethod.md>
